@@ -1,7 +1,12 @@
-use crate::error::XtaskError;
+//! Image generation module for K230 platform.
+//!
+//! This module provides functionality to generate properly formatted and padded
+//! images for the K230 platform. It handles initial offset and alignment requirements.
+
+use crate::error::XtaskResult;
 
 /// Generate an image with a specific format.
-pub fn gen_image(data: &[u8]) -> Result<Vec<u8>, XtaskError> {
+pub fn gen_image(data: &[u8]) -> XtaskResult<Vec<u8>> {
     // Create a vector with 1MB of zeros as the initial offset
     let mut image = vec![0; 0x100000];
 

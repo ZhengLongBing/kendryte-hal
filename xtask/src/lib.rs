@@ -1,5 +1,9 @@
-use clap::{Parser, Subcommand};
+//! Kendryte K230 development utilities.
+//!
+//! This crate provides tools and utilities for working with the Kendryte K230 platform,
+//! including firmware generation, encryption, and image formatting.
 
+use clap::{Parser, Subcommand};
 pub mod error;
 pub mod gen;
 
@@ -17,10 +21,10 @@ pub enum Command {
     /// Generate firmware for Kendryte K230.
     GenFirmware {
         /// Input file path.
-        #[arg(long, short = 'i')]
+        #[arg(long = "ifile", short = 'i')]
         input: String,
         /// Output file path (optional).
-        #[arg(long, short = 'o')]
+        #[arg(long = "ofile", short = 'o')]
         output: Option<String>,
         /// Encryption type (optional).
         #[arg(long, short = 'e')]
